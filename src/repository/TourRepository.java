@@ -1,9 +1,9 @@
 package repository;
 
 import entity.Tour;
+import repository.specifications.TourSpecification;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TourRepository {
 
@@ -11,7 +11,5 @@ public interface TourRepository {
 
     void updateTour(Tour tour);
 
-
-    List<Tour> getToursByParam(TourSpecification... spec);  //TODO check TYPEs or concrete params
-
+    List<Tour> find(TourSpecification spec);  //TODO check TYPEs or concrete params
 }

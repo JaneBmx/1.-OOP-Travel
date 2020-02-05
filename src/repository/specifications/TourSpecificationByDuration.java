@@ -1,8 +1,10 @@
-package repository;
+package repository.specifications;
 
 import entity.Tour;
+import repository.specifications.TourSpecification;
 
 public class TourSpecificationByDuration implements TourSpecification {
+    private static final String TYPE = "DURATION";
     private int maxDuration;
     private int minDuration;
 
@@ -10,6 +12,10 @@ public class TourSpecificationByDuration implements TourSpecification {
         super();
         this.maxDuration = maxDuration;
         this.minDuration = minDuration;
+    }
+
+    public static String getTYPE() {
+        return TYPE;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package repository;
+package repository.specifications;
 
 import entity.Tour;
 
