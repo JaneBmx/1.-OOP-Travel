@@ -1,12 +1,16 @@
 package entity;
 
-public abstract class Tour {
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+public abstract class Tour implements Serializable {
     protected static long globalId = 0;
+
     protected final long id;
     protected int duration;
     protected String country;
     protected String city;
-    protected double cost;
+    protected BigDecimal cost;
     protected FoodMode foodMode;
     protected TransportType transportType;
 
@@ -34,11 +38,11 @@ public abstract class Tour {
         this.duration = duration;
     }
 
-    public double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 
