@@ -69,4 +69,17 @@ public abstract class Tour implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "id=" + id +
+                ", duration=" + duration +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", cost=" + cost +
+                ", foodMode=" + foodMode +
+                ", transportType=" + transportType +
+                '}';
+    }
 }

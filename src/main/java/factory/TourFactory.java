@@ -15,7 +15,7 @@ public class TourFactory {
         return Holder.instance;
     }
 
-    private Tour createTour(TourType type){//TODO change type enum -> String
+    public Tour createTour(TourType type){
         switch (type) {
             case CRUISE:
                 return new Cruise();

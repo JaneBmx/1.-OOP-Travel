@@ -8,5 +8,5 @@ public enum TourType {
     RECREATION,
     SHOPPING,
     TREATMENT
-    
+
 }
