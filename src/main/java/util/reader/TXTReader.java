@@ -1,16 +1,13 @@
 package util.reader;
 
-import entity.Tour;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import exceptions.FileReadException;
-import util.ConsoleHelper;
-import util.parser.TourParser;
 
 import java.io.*;
 
 public class TXTReader implements Reader {
-    private static final String DEFAULT_PATH = "src\\main\\resources\\Tours list.txt";
-
-    private TourParser parser;
+    private static final Logger LOGGER = LogManager.getLogger(TXTReader.class);
 
     private static class Holder {
         private static final Reader instance = new TXTReader();
@@ -21,34 +18,19 @@ public class TXTReader implements Reader {
     }
 
     @Override
-    public String read() throws FileReadException {
-
+    public String read(String path) throws FileReadException {
         StringBuilder text = new StringBuilder();
-
-        ConsoleHelper.writeMessage("Specify full path of file: ");
-        //TODO check exist()? read: path = some default path
-        String path;
-        try {
-            path = ConsoleHelper.readLine();
-        } catch (IOException e) {
-            throw new FileReadException("some msg");
-            //TODO log, msg
-        }
-
-        File file = new File(path);
-        if (!file.exists()) {
-            path = DEFAULT_PATH;
-        }
-        //is it right way to skip exc?
-
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 text.append(line).append("\n");
             }
+        } catch (FileNotFoundException e) {
+            LOGGER.error(e);
+            throw new FileReadException("File not found.");
         } catch (IOException e) {
-            //TODO log
-            throw new FileReadException("some msg");
+            LOGGER.error(e);
+            throw new FileReadException(e.getMessage());
         }
         return text.toString().trim();
     }

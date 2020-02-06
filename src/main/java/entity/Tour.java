@@ -4,22 +4,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public abstract class Tour implements Serializable {
-    protected static long globalId = 0;
-    protected final long id;
     protected int duration;
     protected String country;
     protected String city;
     protected BigDecimal cost;
     protected FoodMode foodMode;
     protected TransportType transportType;
-
-    Tour(){
-        id = ++globalId;
-    }
-
-    public long getId() {
-        return id;
-    }
 
     public String getCountry() {
         return country;
@@ -72,7 +62,6 @@ public abstract class Tour implements Serializable {
     @Override
     public String toString() {
         return "Tour{" +
-                "id=" + id +
                 ", duration=" + duration +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +

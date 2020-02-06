@@ -5,8 +5,12 @@ import entity.Tour;
 import entity.TransportType;
 import factory.TourFactory;
 import factory.TourType;
+
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,23 +18,38 @@ import java.util.regex.Pattern;
 import static validation.TourValidator.*;
 
 
-public class TourParser { //TODO помажь интерфейсами
-    private static final String regExTourFormat = "(\\d+)\\s+(\\w+)\\s+(\\w+)\\s+(\\w+)\\s+(\\d+)\\s+(\\d+\\.?\\d*)\\s+(\\w+_?\\w*)\\s+(\\w+_?\\w*)";
+public class TourParser {
+    private static final String REGEX_TOUR_FORMAT = "(\\w+)\\s+(\\w+)\\s+(\\w+)\\s+(\\d+)\\s+(\\d+\\.?\\d*)\\s+(\\w+_?\\w*)\\s+(\\w+_?\\w*)";
+    private static final String SPACES = "\\s++";
+    private static final int TOUR_FORMAT_LENGTH = 7;
 
     public static void main(String[] args) {
         String tempText = "id  type   country     city   days  cost   feed  transport  \n" +
                 "-----------------------------------------------//\n" +
-                "1  CRUISE  Russia   Ekb    12    120    all            BUS\n" +
-                "2  TREATMENT  Russia   Spb    7     100    ALL_INCLUSIVE  BUS\n" +
-                "3  EXCURSION Belarus  Brest  2     30     brcf           BUS\n" +
-                "4  EXTREME Belarus  Minsk  999   999      NOT_INCLUDED   BUS";
+                "CRUISE  Russia   Ekb    12    120    all            BUS\n" +
+                "TREATMENT  Russia   Spb    7     100    ALL_INCLUSIVE  BUS\n" +
+                "EXCURSION Belarus  Brest  2     30     brcf           BUS\n" +
+                "EXTREME Belarus  Minsk  999   999      NOT_INCLUDED   BUS";
+        TourParser parser = new TourParser();
+        List<String> set = parser.findMatches(tempText);
+        Object o = parser.parseToTour(set.get(0));
+    }
+
+    public Set<Tour> parse(String text) {
+        Set<Tour> tours = new HashSet<>();
+
+        List<String> matches = findMatches(text);
+
+
+
+
     }
 
 
-    public Set<String> parser(String text) {
-        Set<String> strings = new HashSet<>();
-        // id(1) TourType(2) country(3) city(4) days(5) cost(6) FoodMode(7) TransportMode(8)
-        Pattern pattern = Pattern.compile(regExTourFormat);
+    public static List<String> findMatches(String text) {
+        List<String> strings = new ArrayList<>();
+        //TourType(1) country(2) city(3) days(4) cost(5) FoodMode(6) TransportMode(7)
+        Pattern pattern = Pattern.compile(REGEX_TOUR_FORMAT);
         Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
@@ -39,31 +58,27 @@ public class TourParser { //TODO помажь интерфейсами
         return strings;
     }
 
-    static Tour tourConverter(String line) {
-        String[] params = line.split("\\s++");
-        //TODO пофикси беду с пробелами(если более одного)
+    Tour parseToTour(String line) {
+        String[] params = line.split(SPACES);
+        //TourType(0) country(1) city(2) days(3) cost(4) FoodMode(5) TransportMode(6)
+        if (!(params.length == TOUR_FORMAT_LENGTH && isTourType(params[0])
+                && isFoodType(params[5]) && isTransportType(params[6]))) {
 
-        // id(1) TourType(2) country(3) city(4) days(5) cost(6) FoodMode(7) TransportMode(8)
-        if (!(isTourType(params[2]) && isFoodType(params[7]) && isTransportType(params[8]))) {
-            //TODO быть ексепшену или не быть?
-            return null;
+            TourFactory factory = TourFactory.getInstance();
+            Tour tour = factory.createTour(TourType.valueOf(params[0]));
+
+            try {
+                tour.setCountry(params[1].trim());
+                tour.setCity(params[2].trim());
+                tour.setDuration(Integer.parseInt(params[3]));
+                tour.setCost(BigDecimal.valueOf(Double.parseDouble(params[4].trim())));
+                tour.setFoodMode(FoodMode.valueOf(params[5]));
+                tour.setTransportType(TransportType.valueOf(params[6]));
+            } catch (Exception e) {
+                return null;
+            }
+            return tour;
         }
-
-        TourFactory factory = TourFactory.getInstance();
-        Tour tour = factory.createTour(TourType.valueOf(params[1]));
-
-        try {
-            tour.setCountry(params[3].trim());
-            tour.setCity(params[4].trim());
-            tour.setDuration(Integer.parseInt(params[5]));
-            tour.setCost(BigDecimal.valueOf(Double.parseDouble(params[6].trim())));
-            tour.setFoodMode(FoodMode.valueOf(params[7]));
-            tour.setTransportType(TransportType.valueOf(params[8]));
-        } catch (Exception e) {
-            //TODO кидать ексепшен? врядли. надо как-то просто скипать. пусть чекает получатель
-            return null;
-        }
-        return tour;
-        //TODO айди не либо не будут уникальными, либо не будут совпадать с айди из тхт. убрать?
+        return null;
     }
 }
