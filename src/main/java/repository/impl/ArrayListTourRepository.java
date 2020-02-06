@@ -9,26 +9,24 @@ import java.util.List;
 public class ArrayListTourRepository implements TourRepository {
     List<Tour> tours = new ArrayList<>();
 
-    public void add(Tour tour){
+    @Override
+    public void addTour(Tour tour) {
         tours.add(tour);
     }
 
     @Override
-    public void addTour(List<Tour> tour) {
-        this.tours.addAll(tour);
+    public void removeTour(Tour tour) {
+        //potom pridumau krasivo
     }
 
     @Override
     public void updateTour(Tour tour) {
-    //TODO is it real necessary?
+
     }
 
     @Override
-    public List<Tour> find(TourSpecification spec) {
+    public List<Tour> query(TourSpecification spec) {
        // switch (spec.)
-
-
-
         return null;
     }
 }

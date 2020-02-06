@@ -3,17 +3,29 @@ package util.reader;
 import entity.Tour;
 import exceptions.FileReadException;
 import util.ConsoleHelper;
+import util.parser.TourParser;
 
 import java.io.*;
-import java.util.List;
 
 public class TXTReader implements Reader {
     private static final String DEFAULT_PATH = "src\\main\\resources\\Tours list.txt";
+
+    private TourParser parser;
+
+    private static class Holder {
+        private static final Reader instance = new TXTReader();
+    }
+
+    public static Reader getInstance() {
+        return Holder.instance;
+    }
+
     @Override
     public String read() throws FileReadException {
-        StringBuffer text = new StringBuffer();
 
-        ConsoleHelper.writeMessage("Specify full path of file");
+        StringBuilder text = new StringBuilder();
+
+        ConsoleHelper.writeMessage("Specify full path of file: ");
         //TODO check exist()? read: path = some default path
         String path;
         try {
@@ -27,6 +39,7 @@ public class TXTReader implements Reader {
         if (!file.exists()) {
             path = DEFAULT_PATH;
         }
+        //is it right way to skip exc?
 
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;

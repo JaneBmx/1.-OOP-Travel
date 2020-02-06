@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface Reader {
     String read() throws FileReadException;
-
 }

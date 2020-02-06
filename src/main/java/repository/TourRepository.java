@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface TourRepository {
 
-    void addTour(List<Tour> tour); //TODO nado add by one?
+    void addTour(Tour tour);
+
+    void removeTour(Tour tour);
 
     void updateTour(Tour tour);
 
-    List<Tour> find(TourSpecification spec);  //TODO check TYPEs or concrete params
+    List<Tour> query(TourSpecification spec);  //TODO check TYPEs or concrete params
 }

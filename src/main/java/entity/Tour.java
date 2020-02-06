@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 
 public abstract class Tour implements Serializable {
     protected static long globalId = 0;
-
     protected final long id;
     protected int duration;
     protected String country;

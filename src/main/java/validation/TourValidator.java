@@ -19,12 +19,8 @@ public class TourValidator {
         return string == null || string.isEmpty();
     }
 
-    public static boolean checkCost(BigDecimal cost) {
+    public static boolean isValidCost(BigDecimal cost) {
         return cost != null && (1 == cost.signum());
-    }
-
-    public static boolean checkDescription(String description) {
-        return isValidString(description);
     }
 
     public static boolean isTourType(String s) {

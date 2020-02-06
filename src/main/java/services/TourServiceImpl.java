@@ -9,9 +9,8 @@ import java.util.List;
 public class TourServiceImpl implements TourService {
 
     List<Tour>tours = new ArrayList<>();
-    /*TODO тут по идее должен гетаться лист с бд
-    который бы парсился, чекался на валидность и ТОЛЬКО потом добавлялся
-    в ЭТОТ лист*/
+    //TODO тут по идее должен гетаться лист
+    // *.txt  -> reader -> parser -> validation ->list ->suda
 
     @Override
     public List<Tour> getSuitableTours() {
@@ -29,9 +28,9 @@ public class TourServiceImpl implements TourService {
     }
 
     private static void sortByCost(List<Tour> tours) {
-        // tours.sort(Comparator.comparingDouble(Tour::getCost));
+        // tours.sort(Comparator.comparingDouble(Tour::getCost));  ! cost: BigDecimal
     }
-    //TODO с
+    //TODO переделай утром эту дичь
 //    private List<Tour> searchTour(String country, String city, int duration, double cost, FoodMode food, TourType tourType, TransportType transportType) {
 //        return tours.stream().filter(t -> t.getCountry().equalsIgnoreCase(country == null ? t.getCountry() : country)
 //                && t.getCity().equalsIgnoreCase(city == null ? t.getCity() : city)
