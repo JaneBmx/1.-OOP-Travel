@@ -1,7 +1,6 @@
 package factory;
 
 import entity.*;
-import exceptions.IncorrectTypeException;
 
 public class TourFactory {
     private TourFactory() {
@@ -15,7 +14,7 @@ public class TourFactory {
         return Holder.instance;
     }
 
-    public Tour createTour(TourType type){
+    public Tour createTour(TourType type) {
         switch (type) {
             case CRUISE:
                 return new Cruise();
