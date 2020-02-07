@@ -5,7 +5,9 @@ import repository.specifications.TourSpecification;
 
 import java.util.List;
 
-public interface TourRepository {
+public interface Repository {
+
+
 
     void addTour(Tour tour);
 
@@ -13,5 +15,5 @@ public interface TourRepository {
 
     void updateTour(Tour tour);
 
-    List<Tour> query(TourSpecification spec);  //TODO check TYPEs or concrete params?
+    List<Tour> query(TourSpecification spec);
 }

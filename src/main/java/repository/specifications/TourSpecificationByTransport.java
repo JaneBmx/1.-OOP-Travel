@@ -2,7 +2,6 @@ package repository.specifications;
 
 import entity.Tour;
 import entity.TransportType;
-import repository.specifications.TourSpecification;
 
 public class TourSpecificationByTransport implements TourSpecification {
     private static final String TYPE = "TRANSPORT";
