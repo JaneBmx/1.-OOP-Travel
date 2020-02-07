@@ -2,8 +2,11 @@ package entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public abstract class Tour implements Serializable {
+    protected static long globalID;
+    protected long id;
     protected int duration;
     protected String country;
     protected String city;
@@ -11,6 +14,10 @@ public abstract class Tour implements Serializable {
     protected FeedType feedType;
     protected TransportType transportType;
     protected TourType tourType;
+
+    public Tour() {
+        this.id = ++globalID;
+    }
 
     public String getCountry() {
         return country;
@@ -62,6 +69,34 @@ public abstract class Tour implements Serializable {
 
     public TourType getTourType() {
         return tourType;
+    }
+
+    public void setTourType(TourType tourType) {
+        this.tourType = tourType;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tour tour = (Tour) o;
+        return id == tour.id &&
+                duration == tour.duration &&
+                country.equals(tour.country) &&
+                city.equals(tour.city) &&
+                cost.equals(tour.cost) &&
+                feedType == tour.feedType &&
+                transportType == tour.transportType &&
+                tourType == tour.tourType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, duration, country, city, cost, feedType, transportType, tourType);
     }
 
     @Override
