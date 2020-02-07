@@ -1,8 +1,6 @@
 package util.reader;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import exceptions.FileReadException;
+import exception.FileReadException;
 
 import java.io.*;
 

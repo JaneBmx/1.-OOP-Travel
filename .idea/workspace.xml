@@ -25,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,7 +55,20 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="$redundant.Test" />
+      <module name="Travel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="$redundant.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TourParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="util.parser.TourParser" />
       <module name="Travel" />
@@ -65,6 +78,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.TourParser" />
       </list>
     </recent_temporary>
@@ -84,6 +98,7 @@
       <workItem from="1580910378414" duration="3092000" />
       <workItem from="1580938149289" duration="1507000" />
       <workItem from="1580939733154" duration="16422000" />
+      <workItem from="1581058636746" duration="8979000" />
     </task>
     <servers />
   </component>
@@ -108,30 +123,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1580897787405" />
-    <state x="488" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1580942478558">
+    <state x="488" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1581068230576">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1580942478558" />
+    <state x="488" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1581068230576" />
     <state x="313" y="54" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1580897459534">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="54" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728@0.0.1366.728" timestamp="1580897459534" />
-    <state width="1323" height="114" key="GridCell.Tab.0.bottom" timestamp="1580990107731">
+    <state width="1323" height="53" key="GridCell.Tab.0.bottom" timestamp="1581067805340">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="114" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580990107731" />
-    <state width="1323" height="114" key="GridCell.Tab.0.center" timestamp="1580990107731">
+    <state width="1323" height="53" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581067805340" />
+    <state width="1323" height="53" key="GridCell.Tab.0.center" timestamp="1581067805340">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="114" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580990107731" />
-    <state width="1323" height="114" key="GridCell.Tab.0.left" timestamp="1580990107731">
+    <state width="1323" height="53" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581067805340" />
+    <state width="1323" height="53" key="GridCell.Tab.0.left" timestamp="1581067805340">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="114" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580990107731" />
-    <state width="1323" height="114" key="GridCell.Tab.0.right" timestamp="1580990107731">
+    <state width="1323" height="53" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581067805340" />
+    <state width="1323" height="53" key="GridCell.Tab.0.right" timestamp="1581067805340">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="114" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580990107731" />
+    <state width="1323" height="53" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581067805340" />
     <state width="1323" height="322" key="GridCell.Tab.1.bottom" timestamp="1580941879512">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -148,10 +163,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="322" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1580941879512" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1580939811106">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1581058746995">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1580939811106" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581058746995" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

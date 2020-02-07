@@ -1,6 +1,0 @@
-id  type   cntr     city   days  cost   feed  transport
------------------------------------------------//
-1  CRUISE  Russia   Ekb    12    120    NOT_INCLUDED  BUS
-2  EXTREME  Russia   Spb   7     100    NOT_INCLUDED  smthNotValid
-3  EXTREME Belarus  Brest  2     30     brcf          BUS
-4
