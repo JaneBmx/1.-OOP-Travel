@@ -7,7 +7,7 @@ import exceptions.FileReadException;
 import java.io.*;
 
 public class TXTReader implements Reader {
-    private static final Logger LOGGER = LogManager.getLogger(TXTReader.class);
+    //private static final Logger LOGGER = LogManager.getLogger(TXTReader.class);
 
     private static class Holder {
         private static final Reader instance = new TXTReader();
@@ -26,10 +26,10 @@ public class TXTReader implements Reader {
                 text.append(line).append("\n");
             }
         } catch (FileNotFoundException e) {
-            LOGGER.error(e);
+            //LOGGER.error(e);
             throw new FileReadException("File not found.");
         } catch (IOException e) {
-            LOGGER.error(e);
+            //LOGGER.error(e);
             throw new FileReadException(e.getMessage());
         }
         return text.toString().trim();
