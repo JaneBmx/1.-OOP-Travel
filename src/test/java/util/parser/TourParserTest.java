@@ -1,10 +1,13 @@
 package util.parser;
 
 import entity.Cruise;
+import entity.FeedType;
 import entity.Tour;
+import entity.TransportType;
 import org.junit.Assert;
 import org.junit.Test;
 import java.math.BigDecimal;
+import java.util.Iterator;
 import java.util.Set;
 
 
