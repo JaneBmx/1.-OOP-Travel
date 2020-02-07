@@ -61,8 +61,8 @@ public abstract class Tour implements Serializable {
 
     @Override
     public String toString() {
-        return "Tour{" +
-                ", duration=" + duration +
+        return "Tour{"
+                + "duration=" + duration +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", cost=" + cost +
