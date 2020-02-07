@@ -4,7 +4,7 @@ import entity.FoodMode;
 import entity.Tour;
 import entity.TransportType;
 import factory.TourFactory;
-import factory.TourType;
+import entity.TourType;
 
 import java.math.BigDecimal;
 import java.util.*;
