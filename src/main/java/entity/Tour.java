@@ -8,7 +8,7 @@ public abstract class Tour implements Serializable {
     protected String country;
     protected String city;
     protected BigDecimal cost;
-    protected FoodMode foodMode;
+    protected FeedType feedType;
     protected TransportType transportType;
     protected TourType tourType;
 
@@ -36,12 +36,12 @@ public abstract class Tour implements Serializable {
         this.cost = cost;
     }
 
-    public FoodMode getFoodMode() {
-        return foodMode;
+    public FeedType getFeedType() {
+        return feedType;
     }
 
-    public void setFoodMode(FoodMode foodMode) {
-        this.foodMode = foodMode;
+    public void setFeedType(FeedType feedType) {
+        this.feedType = feedType;
     }
 
     public TransportType getTransportType() {
@@ -66,14 +66,14 @@ public abstract class Tour implements Serializable {
 
     @Override
     public String toString() {
-        return "Tour[" +
-                " tourType=" + tourType +
-                ", duration=" + duration +
+        return "Tour{" +
+                "duration=" + duration +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", cost=" + cost +
-                ", foodMode=" + foodMode +
+                ", feedType=" + feedType +
                 ", transportType=" + transportType +
-                ']';
+                ", tourType=" + tourType +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package entity;
 
-public enum FoodMode {
+public enum FeedType {
     NOT_INCLUDED,
     ALL_INCLUSIVE,
     BREAKFAST_ONLY
