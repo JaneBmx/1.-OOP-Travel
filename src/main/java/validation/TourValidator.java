@@ -2,7 +2,7 @@ package validation;
 
 import entity.FoodMode;
 import entity.TransportType;
-import factory.TourType;
+import entity.TourType;
 
 import java.math.BigDecimal;
 
