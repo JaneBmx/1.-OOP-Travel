@@ -9,7 +9,6 @@ public class TourSpecificationByTransport implements TourSpecification {
     private TransportType transportType;
 
     public TourSpecificationByTransport(TransportType transportType) {
-        super();
         this.transportType = transportType;
     }
 

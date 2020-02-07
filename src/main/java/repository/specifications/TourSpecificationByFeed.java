@@ -8,7 +8,6 @@ public class TourSpecificationByFeed implements TourSpecification {
     private FeedType feedType;
 
     public TourSpecificationByFeed(FeedType feedType) {
-        super();
         this.feedType = feedType;
     }
 

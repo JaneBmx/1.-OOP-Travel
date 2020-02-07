@@ -9,7 +9,6 @@ public class TourSpecificationByDuration implements TourSpecification {
     private int minDuration;
 
     public TourSpecificationByDuration(int maxDuration, int minDuration) {
-        super();
         this.maxDuration = maxDuration;
         this.minDuration = minDuration;
     }
