@@ -1,17 +1,30 @@
 package validation;
 
 import entity.FeedType;
+import entity.Tour;
 import entity.TransportType;
 import entity.TourType;
 
 import java.math.BigDecimal;
 
 public class TourValidator {
-    public static boolean checkDuration(int duration) {
+    public static boolean isValidTour(Tour tour) {
+        if (tour != null) {
+            return (isValidRegion(tour.getCountry(), tour.getCity())
+                    && isValidDuration(tour.getDuration())
+                    && isValidCost(tour.getCost())
+                    && isTourType(tour.getTourType().toString())
+                    && isTransportType(tour.getTransportType().toString())
+                    && isFeedType(tour.getFeedType().toString()));
+        }
+        return false;
+    }
+
+    public static boolean isValidDuration(int duration) {
         return duration > 0;
     }
 
-    public static boolean checkRegion(String country, String city) {
+    public static boolean isValidRegion(String country, String city) {
         return (isValidString(country) && isValidString(city));
     }
 
@@ -34,7 +47,7 @@ public class TourValidator {
         return false;
     }
 
-    public static boolean isFoodType(String s) {
+    public static boolean isFeedType(String s) {
         if (!isValidString(s)) return false;
 
         for (FeedType type : FeedType.values()) {
