@@ -7,6 +7,7 @@ import exceptions.FileReadException;
 import java.io.*;
 
 public class TXTReader implements Reader {
+    // "src/main/resources/Tours list.txt"
     //private static final Logger LOGGER = LogManager.getLogger(TXTReader.class);
 
     private static class Holder {
