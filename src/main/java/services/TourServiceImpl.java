@@ -8,16 +8,17 @@ import java.util.List;
 
 public class TourServiceImpl implements TourService {
 
-    List<Tour>tours = new ArrayList<>();
-    //TODO тут по идее должен гетаться лист
+    List<Tour> tours = new ArrayList<>();
+    //TODO ?
     // *.txt  -> reader -> parser -> validation ->list ->suda
 
     @Override
     public List<Tour> getSuitableTours() {
         return null;
     }
-     //TODO is next methods should be in this class?
 
+
+    //TODO change list to set
     private static void sortByCountry(List<Tour> tours) {
         tours.sort(Comparator.comparing(Tour::getCountry)
                 .thenComparing(Tour::getCity));
@@ -30,7 +31,7 @@ public class TourServiceImpl implements TourService {
     private static void sortByCost(List<Tour> tours) {
         // tours.sort(Comparator.comparingDouble(Tour::getCost));  ! cost: BigDecimal
     }
-    //TODO переделай утром эту дичь
+    //TODO redo it tomorrow
 //    private List<Tour> searchTour(String country, String city, int duration, double cost, FoodMode food, TourType tourType, TransportType transportType) {
 //        return tours.stream().filter(t -> t.getCountry().equalsIgnoreCase(country == null ? t.getCountry() : country)
 //                && t.getCity().equalsIgnoreCase(city == null ? t.getCity() : city)
