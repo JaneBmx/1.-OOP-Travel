@@ -15,4 +15,8 @@ public class IncorrectTypeException extends Exception{
     public IncorrectTypeException(Throwable cause) {
         super(cause);
     }
+
+    public IncorrectTypeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 }

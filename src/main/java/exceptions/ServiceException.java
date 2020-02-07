@@ -15,4 +15,8 @@ public class ServiceException extends Exception {
     public ServiceException(Throwable cause) {
         super(cause);
     }
+
+    public ServiceException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 }
