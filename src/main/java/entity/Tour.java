@@ -10,6 +10,7 @@ public abstract class Tour implements Serializable {
     protected BigDecimal cost;
     protected FoodMode foodMode;
     protected TransportType transportType;
+    protected TourType tourType;
 
     public String getCountry() {
         return country;
@@ -59,15 +60,20 @@ public abstract class Tour implements Serializable {
         this.city = city;
     }
 
+    public TourType getTourType() {
+        return tourType;
+    }
+
     @Override
     public String toString() {
-        return "Tour{"
-                + "duration=" + duration +
+        return "Tour[" +
+                " tourType=" + tourType +
+                ", duration=" + duration +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", cost=" + cost +
                 ", foodMode=" + foodMode +
                 ", transportType=" + transportType +
-                '}';
+                ']';
     }
 }
