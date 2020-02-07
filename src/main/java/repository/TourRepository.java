@@ -13,5 +13,5 @@ public interface TourRepository {
 
     void updateTour(Tour tour);
 
-    List<Tour> query(TourSpecification spec);  //TODO check TYPEs or concrete params
+    List<Tour> query(TourSpecification spec);  //TODO check TYPEs or concrete params?
 }
