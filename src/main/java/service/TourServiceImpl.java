@@ -1,45 +1,41 @@
 package service;
 
-import entity.Tour;
+import comparator.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import entity.Tour;
+import exception.FileReadException;
+import repository.Repository;
+import repository.impl.TourRepository;
+import repository.specifications.TourSpecification;
+
+import java.util.*;
 
 public class TourServiceImpl implements TourService {
-
     List<Tour> tours = new ArrayList<>();
-    //TODO ?
-    // *.txt  -> reader -> parser -> validation ->list ->suda
 
     @Override
-    public List<Tour> getSuitableTours() {
-        return null;
+    public List<Tour> getSuitableTours(Collection<TourSpecification> specifications, Comparator<Tour> comparator) throws FileReadException {
+        List<Tour> result = new ArrayList<>();
+        result.addAll(tours);
+
+        Repository tr = TourRepository.getInstance(null);
+
+        for (TourSpecification sp: specifications){
+            result =tr.query(sp);
+        }
+        result.sort(comparator);
+        return result;
     }
 
-
-    //TODO change list to set
-    private static void sortByCountry(List<Tour> tours) {
-        tours.sort(Comparator.comparing(Tour::getCountry)
-                .thenComparing(Tour::getCity));
+    private void sortByCountry() {
+        tours.sort(new CountryAndCostComparator());
     }
 
-    private static void sortByDuration(List<Tour> tours) {
-        tours.sort(Comparator.comparingInt(Tour::getDuration));
+    private void sortByDuration() {
+        tours.sort(new TourDurationComparator().thenComparing(new TourDurationComparator()));
     }
 
-    private static void sortByCost(List<Tour> tours) {
-        // tours.sort(Comparator.comparingDouble(Tour::getCost));  ! cost: BigDecimal
+    private void sortByFeedType() {
+        tours.sort(new FeedTypeComparator());
     }
-    //TODO redo it tomorrow
-//    private List<Tour> searchTour(String country, String city, int duration, double cost, FoodMode food, TourType tourType, TransportType transportType) {
-//        return tours.stream().filter(t -> t.getCountry().equalsIgnoreCase(country == null ? t.getCountry() : country)
-//                && t.getCity().equalsIgnoreCase(city == null ? t.getCity() : city)
-//                && t.getDuration() >= (duration == 0 ? t.getDuration() : duration)
-//                && t.getCost() <= (cost == 0 ? t.getCost() : cost)
-//                && t.getFood() == (food == null ? t.getFood() : food)
-//                && t.getTourType() == (tourType == null ? t.getTourType() : tourType)
-//                && t.getTransport() == (transportType == null ? t.getTransport() : transportType))
-//                .collect(Collectors.toList());
-//    }
 }
