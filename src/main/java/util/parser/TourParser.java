@@ -1,6 +1,6 @@
 package util.parser;
 
-import entity.FoodMode;
+import entity.FeedType;
 import entity.Tour;
 import entity.TransportType;
 import factory.TourFactory;
@@ -71,7 +71,7 @@ public class TourParser implements Parser {
                 tour.setCity(params[2].trim());
                 tour.setDuration(Integer.parseInt(params[3]));
                 tour.setCost(BigDecimal.valueOf(Double.parseDouble(params[4].trim())));
-                tour.setFoodMode(FoodMode.valueOf(params[5]));
+                tour.setFeedType(FeedType.valueOf(params[5]));
                 tour.setTransportType(TransportType.valueOf(params[6]));
             } catch (Exception e) {
                 return null;

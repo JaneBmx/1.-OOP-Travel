@@ -1,6 +1,6 @@
 package validation;
 
-import entity.FoodMode;
+import entity.FeedType;
 import entity.TransportType;
 import entity.TourType;
 
@@ -37,7 +37,7 @@ public class TourValidator {
     public static boolean isFoodType(String s) {
         if (!isValidString(s)) return false;
 
-        for (FoodMode type : FoodMode.values()) {
+        for (FeedType type : FeedType.values()) {
             if (s.equals(type.toString())) {
                 return true;
             }

@@ -1,16 +1,15 @@
 package repository.specifications;
 
-import entity.FoodMode;
+import entity.FeedType;
 import entity.Tour;
-import repository.specifications.TourSpecification;
 
 public class TourSpecificationByFeed implements TourSpecification {
     private static final String TYPE = "FEED";
-    private FoodMode foodMode;
+    private FeedType feedType;
 
-    public TourSpecificationByFeed(FoodMode foodMode) {
+    public TourSpecificationByFeed(FeedType feedType) {
         super();
-        this.foodMode = foodMode;
+        this.feedType = feedType;
     }
 
     public static String getTYPE() {
@@ -19,6 +18,6 @@ public class TourSpecificationByFeed implements TourSpecification {
 
     @Override
     public boolean specified(Tour tour) {
-        return tour.getFoodMode() == foodMode;
+        return tour.getFeedType() == feedType;
     }
 }
