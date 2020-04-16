@@ -6,9 +6,6 @@ import repository.specifications.TourSpecification;
 import java.util.List;
 
 public interface Repository {
-
-
-
     void addTour(Tour tour);
 
     void removeTour(Tour tour);
